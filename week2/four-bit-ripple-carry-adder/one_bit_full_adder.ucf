@@ -1,0 +1,5 @@
+NET "a_in" LOC ="P63";
+NET "b_in" LOC ="P67";
+NET "c_in" LOC ="P71";
+NET "sum" LOC ="P191";
+NET "c_out" LOC ="P196";

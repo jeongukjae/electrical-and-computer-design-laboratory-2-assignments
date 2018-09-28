@@ -1,0 +1,17 @@
+xst -intstyle ise -ifn "C:/.Xilinx/project/TestProject1/and_test.xst" -ofn "C:/.Xilinx/project/TestProject1/and_test.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s200-pq208-4 and_test.ngc and_test.ngd  
+map -intstyle ise -p xc3s200-pq208-4 -cm area -ir off -pr off -c 100 -o and_test_map.ncd and_test.ngd and_test.pcf 
+par -w -intstyle ise -ol high -t 1 and_test_map.ncd and_test.ncd and_test.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml and_test.twx and_test.ncd -o and_test.twr and_test.pcf 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s200-pq208-4 and_test.ngc and_test.ngd  
+map -intstyle ise -p xc3s200-pq208-4 -cm area -ir off -pr off -c 100 -o and_test_map.ncd and_test.ngd and_test.pcf 
+par -w -intstyle ise -ol high -t 1 and_test_map.ncd and_test.ncd and_test.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml and_test.twx and_test.ncd -o and_test.twr and_test.pcf 
+bitgen -intstyle ise -f and_test.ut and_test.ncd 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc and_test_source.ucf -p xc3s200-pq208-4 and_test.ngc and_test.ngd  
+map -intstyle ise -p xc3s200-pq208-4 -cm area -ir off -pr off -c 100 -o and_test_map.ncd and_test.ngd and_test.pcf 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc and_test_source.ucf -p xc3s200-pq208-4 and_test.ngc and_test.ngd  
+map -intstyle ise -p xc3s200-pq208-4 -cm area -ir off -pr off -c 100 -o and_test_map.ncd and_test.ngd and_test.pcf 
+par -w -intstyle ise -ol high -t 1 and_test_map.ncd and_test.ncd and_test.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml and_test.twx and_test.ncd -o and_test.twr and_test.pcf -ucf and_test_source.ucf 
+bitgen -intstyle ise -f and_test.ut and_test.ncd 

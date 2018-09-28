@@ -1,0 +1,70 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 14.7
+//  \   \         Application : sch2hdl
+//  /   /         Filename : one_bit_full_adder.vf
+// /___/   /\     Timestamp : 09/17/2018 10:00:41
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: sch2hdl -intstyle ise -family spartan3 -verilog C:/.Xilinx/project/TestProject2/one_bit_full_adder.vf -w C:/.Xilinx/project/TestProject2/one_bit_full_adder.sch
+//Design Name: one_bit_full_adder
+//Device: spartan3
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale 1ns / 1ps
+
+module half_adder_MUSER_one_bit_full_adder(a_in, 
+                                           b_in, 
+                                           c_out, 
+                                           sum);
+
+    input a_in;
+    input b_in;
+   output c_out;
+   output sum;
+   
+   
+   AND2  XLXI_1 (.I0(b_in), 
+                .I1(a_in), 
+                .O(c_out));
+   XOR2  XLXI_2 (.I0(b_in), 
+                .I1(a_in), 
+                .O(sum));
+endmodule
+`timescale 1ns / 1ps
+
+module one_bit_full_adder(a_in, 
+                          b_in, 
+                          c_in, 
+                          c_out, 
+                          sum);
+
+    input a_in;
+    input b_in;
+    input c_in;
+   output c_out;
+   output sum;
+   
+   wire XLXN_1;
+   wire XLXN_3;
+   wire XLXN_4;
+   
+   half_adder_MUSER_one_bit_full_adder  XLXI_1 (.a_in(a_in), 
+                                               .b_in(b_in), 
+                                               .c_out(XLXN_3), 
+                                               .sum(XLXN_1));
+   half_adder_MUSER_one_bit_full_adder  XLXI_2 (.a_in(c_in), 
+                                               .b_in(XLXN_1), 
+                                               .c_out(XLXN_4), 
+                                               .sum(sum));
+   OR2  XLXI_3 (.I0(XLXN_4), 
+               .I1(XLXN_3), 
+               .O(c_out));
+endmodule

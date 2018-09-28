@@ -1,0 +1,7 @@
+xst -intstyle ise -ifn "C:/.Xilinx/project/TestProject2/half_adder.xst" -ofn "C:/.Xilinx/project/TestProject2/half_adder.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc half_adder_source.ucf -p xc3s200-pq208-4 half_adder.ngc half_adder.ngd  
+map -intstyle ise -p xc3s200-pq208-4 -cm area -ir off -pr off -c 100 -o half_adder_map.ncd half_adder.ngd half_adder.pcf 
+par -w -intstyle ise -ol high -t 1 half_adder_map.ncd half_adder.ncd half_adder.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml half_adder.twx half_adder.ncd -o half_adder.twr half_adder.pcf -ucf half_adder_source.ucf 
+bitgen -intstyle ise -f half_adder.ut half_adder.ncd 
+sch2sym -intstyle ise -family spartan3 -refsym half_adder C:/.Xilinx/project/TestProject2/half_adder.sch C:/.Xilinx/project/TestProject2/half_adder.sym 

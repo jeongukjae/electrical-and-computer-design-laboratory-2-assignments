@@ -1,0 +1,40 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 14.7
+//  \   \         Application : sch2hdl
+//  /   /         Filename : half_adder.vf
+// /___/   /\     Timestamp : 09/17/2018 09:49:48
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: sch2hdl -intstyle ise -family spartan3 -verilog C:/.Xilinx/project/TestProject2/half_adder.vf -w C:/.Xilinx/project/TestProject2/half_adder.sch
+//Design Name: half_adder
+//Device: spartan3
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale 1ns / 1ps
+
+module half_adder(a_in, 
+                  b_in, 
+                  c_out, 
+                  sum);
+
+    input a_in;
+    input b_in;
+   output c_out;
+   output sum;
+   
+   
+   AND2  XLXI_1 (.I0(b_in), 
+                .I1(a_in), 
+                .O(c_out));
+   XOR2  XLXI_2 (.I0(b_in), 
+                .I1(a_in), 
+                .O(sum));
+endmodule

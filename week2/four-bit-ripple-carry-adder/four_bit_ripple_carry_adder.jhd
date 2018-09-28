@@ -1,0 +1,9 @@
+MODULE four_bit_ripple_carry_adder
+	SUBMODULE one_bit_full_adder
+		INSTANCE XLXI_1
+	SUBMODULE one_bit_full_adder
+		INSTANCE XLXI_2
+	SUBMODULE one_bit_full_adder
+		INSTANCE XLXI_3
+	SUBMODULE one_bit_full_adder
+		INSTANCE XLXI_4
