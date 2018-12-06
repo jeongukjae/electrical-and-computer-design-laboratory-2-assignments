@@ -68,7 +68,7 @@ module lcd(reset, clk, e, rs, rw, data);
     else
       case (state)
         delay: `increase_cnt(70)
-        function_set: increase_cnt(30)
+        function_set: `increase_cnt(30)
         disp_onoff: `increase_cnt(30)
         entry_mode: `increase_cnt(30)
         line1: `increase_cnt(20)
